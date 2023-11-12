@@ -70,4 +70,25 @@ group_number |>
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
+### Q7 Grouped Exam Grade Distribution
 
+We use two simple representations of histogram and bar graph as the data represented, **Exam Grades** is a discrete variable.
+
+```{r}
+#First Representation
+grades |>
+  filter(!is.na(Exam)) |>
+  ggplot(aes(x=Exam)) + 
+  geom_histogram(bins = 30) +
+  scale_x_continuous(name="Exam Grades")+ scale_y_continuous(name="No. of Students")+
+  facet_wrap(~Group)
+
+#Second Representation
+grades |>
+  filter(!is.na(Exam)) |>
+  ggplot(aes(x=Exam)) + 
+  geom_bar() +
+  scale_x_continuous(name="Exam Grades")+
+  scale_y_continuous(name="No. of Students")+
+  facet_wrap(~Group)
+```
