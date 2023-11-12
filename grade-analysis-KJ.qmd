@@ -147,3 +147,18 @@ missing_group_grades <- long_formatted_grades |>
 missing_group_grades
 ```
 
+### Q14 Count Missing Online Test Grades
+
+```{r}
+online_missing_grades <- long_formatted_grades |>
+  group_by(Id) |>
+  filter(str_starts(name, "Online")) |>
+  summarise(online_tests_missed = sum(is.na(value)))
+
+online_missing_grades 
+```
+
+
+
+
+
