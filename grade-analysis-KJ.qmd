@@ -20,3 +20,15 @@ library(stringr)
 ```{r}
 grades <- vroom(here("grades.csv"))
 ```
+### Q2 Exam Statistics
+
+```{r}
+exam_stats <- grades |>  summarise(
+    min_exam = min(Exam, na.rm = TRUE),
+    max_exam = max(Exam, na.rm = TRUE),
+    mean_exam = mean(Exam, na.rm = TRUE),
+    median_exam = median(Exam, na.rm = TRUE))
+
+knitr::kable(exam_stats, caption = "Statistics for Exam Variable")
+```
+
