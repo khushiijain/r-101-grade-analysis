@@ -61,4 +61,13 @@ group_number <- grades |> group_by(Group) |>
 knitr::kable(group_number, caption = "Number of Students in Specific Group")
 ```
 
+### Q6 Group-wise Representation
+
+```{r}
+group_number |>
+  ggplot(aes(y=Student_Count, x=Group, width=.6)) + geom_col(fill="darkred") +
+  scale_y_continuous(name="No. of Students", limits=c(0, 40)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
 
