@@ -172,5 +172,16 @@ grades |>
   scale_fill_discrete(name = "Missing Online Grades")
 ```
 
+### Q16 Table: Students with Missing Grades
+
+```{r}
+mcq_missed <- long_formatted_grades |>
+  group_by(Id) |>
+  filter(str_starts(name, "MCQ")) |>
+  mutate(Missed = any(is.na(value))) |>
+  summarise(Missed = any(Missed))
+
+mcq_missed 
+```
 
 
