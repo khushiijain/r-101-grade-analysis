@@ -119,4 +119,15 @@ long_formatted_grades <- grades |>
                values_to = "value")
 ```
 
+### Q11 Missing Grades per Student
+
+```{r}
+missing_student_grades <- long_formatted_grades |>
+  group_by(Id) |>
+  summarise(Missing_Grades = sum(is.na(value)))
+
+missing_student_grades
+```
+
+
 
