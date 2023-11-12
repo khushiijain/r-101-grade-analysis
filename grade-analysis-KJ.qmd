@@ -158,7 +158,19 @@ online_missing_grades <- long_formatted_grades |>
 online_missing_grades 
 ```
 
+### Q15 Visualize Exam Grades by Online Test Missed
 
+```{r}
+grades <- grades |> inner_join(online_missing_grades, by=join_by("Id"))
+
+grades |>
+  filter(!is.na(Exam)) |>
+  ggplot(aes(x= Exam, fill=factor(online_tests_missed)))+ geom_histogram(bins = 30, color = "white") +
+  labs(title = "Exam Grades conditioned by Missing Online Exam",
+       x = "Exam Grades",
+       y = "No. of Students") +
+  scale_fill_discrete(name = "Missing Online Grades")
+```
 
 
 
