@@ -32,3 +32,10 @@ exam_stats <- grades |>  summarise(
 knitr::kable(exam_stats, caption = "Statistics for Exam Variable")
 ```
 
+### Q3 Students without Final Exam
+
+```{r}
+no_final_exam <- grades |> 
+  filter(is.na(Exam)) |>
+  nrow()
+```
