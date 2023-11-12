@@ -194,6 +194,25 @@ missed_mcq_group <- long_formatted_grades |>
 
 missed_mcq_group
 ```
+### Q18
+
+```{r}
+group_average_grade <- grades |>
+  group_by(Group) |>
+  summarise(Avg_grades = mean(Exam, na.rm = TRUE))
+```
+
+#### Graph: Exam Grade vs. Missed Percentage
+
+```{r}
+merged_data <- inner_join(group_average_grade, missed_mcq_group, by = "Group")
+
+ggplot(merged_data, aes(x = P_missed, y = Avg_grades)) +
+  geom_point(color="brown") +
+  labs(title = "Average Exam Grade vs Percentage of Missed MCQ Grade",
+       x = "Percentage of Missed MCQs Grade",
+       y = "Average Exam Grade")
+```
 
 
 
