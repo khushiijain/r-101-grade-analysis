@@ -92,3 +92,12 @@ grades |>
   scale_y_continuous(name="No. of Students")+
   facet_wrap(~Group)
 ```
+### Q8 Students Missing Exam
+
+```{r}
+missed_exam_count <- grades |>
+  group_by(Group) |>
+  summarise(Students_Missed_Exam = sum(is.na(Exam)))
+
+missed_exam_count
+```
