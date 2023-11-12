@@ -137,5 +137,13 @@ missing_student_grades |>
   scale_y_continuous(name="No. of Students")
 ```
 
+### Q13 Missing Exams by Group
 
+```{r}
+missing_group_grades <- long_formatted_grades |>
+  group_by(Group) |>
+  summarise(Students = sum(is.na(value)))
+
+missing_group_grades
+```
 
