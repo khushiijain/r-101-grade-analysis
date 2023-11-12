@@ -39,3 +39,18 @@ no_final_exam <- grades |>
   filter(is.na(Exam)) |>
   nrow()
 ```
+
+There are **`r no_final_exam`** students who did not take the exam.
+
+### Q4 Exam Grades Distribution
+
+```{r}
+grades |> 
+  filter(!is.na(Exam)) |>
+  ggplot(aes(x=Exam)) + 
+  geom_histogram(bins = 30, colour = "white", fill="black") +
+  scale_x_continuous(name="Exam Grades")
+```
+
+
+
