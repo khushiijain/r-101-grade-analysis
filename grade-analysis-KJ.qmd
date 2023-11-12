@@ -109,3 +109,14 @@ missed_exam_count |>
   ggplot(aes(x=Group, y=Students_Missed_Exam))+
   geom_col(color="white", fill="darkblue") + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
+
+### Q10 Transform Data to Long Format
+
+```{r}
+long_formatted_grades <- grades |>
+  pivot_longer(cols = -c(Id, Group), 
+               names_to = "name",
+               values_to = "value")
+```
+
+
