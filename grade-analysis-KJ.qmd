@@ -129,5 +129,13 @@ missing_student_grades <- long_formatted_grades |>
 missing_student_grades
 ```
 
+### Q12 Visualize Missing Grades Distribution
+
+```{r}
+missing_student_grades |>
+  ggplot(aes(x=Missing_Grades)) + geom_bar(fill="darkred") +
+  scale_y_continuous(name="No. of Students")
+```
+
 
 
