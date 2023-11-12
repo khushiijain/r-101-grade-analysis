@@ -52,5 +52,13 @@ grades |>
   scale_x_continuous(name="Exam Grades")
 ```
 
+### Q5 No.of Students in Each Group
+
+```{r}
+group_number <- grades |> group_by(Group) |>
+  summarise(Student_Count = n())
+
+knitr::kable(group_number, caption = "Number of Students in Specific Group")
+```
 
 
