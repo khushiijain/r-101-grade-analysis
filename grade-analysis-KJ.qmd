@@ -183,5 +183,17 @@ mcq_missed <- long_formatted_grades |>
 
 mcq_missed 
 ```
+### Q17 Table: Percentage of Students with Missing Grades
+
+```{r}
+missed_mcq_group <- long_formatted_grades |>
+  filter(str_starts(name, "MCQ_")) |>
+  group_by(Group) |>
+  mutate(P_missed = any(is.na(value))) |>
+  summarise(P_missed = (sum(is.na(value)) / n()) * 100)
+
+missed_mcq_group
+```
+
 
 
